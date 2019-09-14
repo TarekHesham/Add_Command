@@ -1,0 +1,15 @@
+clear
+echo -e "Install Python"
+pkg install python
+clear
+echo -e "Inatall Add_Command"
+cp .Add_Command new
+cp -rf new /data/data/com.termux/files/usr/bin
+chmod a+x /data/data/com.termux/files/usr/bin/new
+chmod 777 /data/data/com.termux/files/usr/bin/new
+clear
+cd
+rm -rf ~/Add_Command
+clear
+echo -e "Done Install Enter (new)"
+

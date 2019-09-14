@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+from time import sleep;import os
+
+# COLORS ##################
+wi = "\033[1;37m" #>>White#
+rd = "\033[1;31m" #>Red   #
+gr = "\033[1;32m" #>Green #
+yl = "\033[1;33m" #>Yallow#
+pu = "\033[1;35m" #>Purple#
+###########################
+
+#clear
+def cl():
+	os.system("clear")
+
+#logo
+def logo():
+	cl(),print (yl,'''
+
+   _      _    _   ___                              _
+  /_\  __| |__| | / __|___ _ __  _ __  __ _ _ _  __| |
+ / _ \/ _` / _` || (__/ _ \ '  \| '  \/ _` | ' \/ _` |
+/_/ \_\__,_\__,_|_\___\___/_|_|_|_|_|_\__,_|_||_\__,_|
+               |___|
+''',gr,"\n#By:Tarek_Hesham\n"),sleep(0.5)
+
+#Add_Command
+def Add_Command():
+	print (gr,"[",pu,"Your Files",gr,"]"),sleep(0.3)
+	print (rd,"*/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\*",gr)
+	os.system("ls -a")
+	print (rd,"*/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\*",yl)
+	print (gr,"[",yl,"+",gr,"]",wi,"Enter Name File...\n",yl),sleep(0.3)
+	print (yl,'[',rd,'X',yl,']',rd,'Exit :(',yl)
+	file = str(input(" \n#~: "))
+	if file == " ":
+		print (rd,"[",yl,"!",rd,"]",yl,"Check Name File",rd,file),sleep(1),start()
+	elif file == "" or file == "  " or file == "^X" or file == "Enter":
+		print (rd,"[",yl,"!",rd,"]",yl,"Check Name File",rd,file),sleep(1),start()
+	elif file == "exit" or file == "close" or file == "x" or file == "X":
+		logo(),print (rd,"Good Luck",wi,"Thanks For using",gr,'Add_Command')
+
+	else:
+		os.system("cp -rf {} /data/data/com.termux/files/usr/bin".format(file))
+		os.system("chmod a+x /data/data/com.termux/files/usr/bin/{}".format(file))
+		os.system("chmod 777 /data/data/com.termux/files/usr/bin/{}".format(file))
+		sleep(0.5)
+		logo(),print (gr,"Done.!",rd,'Add_Command',yl,'(',file,')')
+
+def start():
+	logo(),Add_Command()
+
+#Creatd by Tarek_Hesham
+start()
